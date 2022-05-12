@@ -79,12 +79,6 @@ public class MySqlDatabase
             CloseConnection();
         }
     }
-
-    internal int GetNextID(string table)
-    {
-        string column = "Auto_increment";
-        return GetTableInfo(table, column);
-    }
     internal int GetRowsCount(string table)
     {
         string column = "Rows";
@@ -106,7 +100,5 @@ public class MySqlDatabase
             CloseConnection();
         }
         return result;
-
     }
-
 }

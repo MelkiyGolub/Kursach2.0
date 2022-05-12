@@ -13,6 +13,7 @@ namespace Kursach
         {
             InitializeComponent();
             DataContext = this;
+
             LoginCommand = new(o =>
             {
                 Settings.Default.Save();

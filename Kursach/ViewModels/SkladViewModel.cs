@@ -1,4 +1,5 @@
-﻿using Kursach.Objects;
+﻿using Kursach.Database;
+using Kursach.Objects;
 using Kursach.Objects.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,11 +10,23 @@ public class SkladViewModel : ViewModelBase
 {
     public SkladViewModel()
     {
+        var details = SqlModel.GetInstance().SelectDetails();
+
+        if (details.Count == 0)
+        {
+            foreach (var d in Details)
+                SqlModel.GetInstance().Insert(d);
+        }
+        else
+            Details = details;
+
         OrderDetailCommand = new(o =>
         {
-            if (!Cash.Instance.Pay(TotalPrice, $"Заказана деталь '{SelectedDetail.Type}' в количестве {Amount} на сумму {TotalPrice:0.###} ₽")) return;
+            if (!Cash.Instance.Pay(TotalPrice, $"Заказана деталь '{SelectedDetail.Type}' в количестве {Amount} на сумму {TotalPrice} ₽")) return;
 
             Details[Types.IndexOf(SelectedDetail!.Type!)].Amount += Amount;
+
+            SqlModel.GetInstance().Update(Details[Types.IndexOf(SelectedDetail!.Type!)]);
 
             SelectedDetail = null;
             TotalPrice = 0;
@@ -34,7 +47,7 @@ public class SkladViewModel : ViewModelBase
     }
     private const string HYPER_X = "HyperX";
 
-    public ObservableCollection<Detail> Details { get; set; } = new()
+    public List<Detail> Details { get; } = new()
     {
         new()
         {

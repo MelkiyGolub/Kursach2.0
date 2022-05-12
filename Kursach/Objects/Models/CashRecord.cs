@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Kursach.Objects.Models;
 
-[Table("CashRecords")]
+[Table("cashrecords")]
 public class CashRecord : Model
 {
     public CashRecord(int sum, string comment)

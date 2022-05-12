@@ -21,7 +21,9 @@ public partial class Grabej : Window, INotifyPropertyChanged
             control.Time = TimeSpan.FromHours(SelectedTarif.Time);
             control.Timer.Start();
             control.Status = "Занят";
-            control.statusCanvas.Background = Brushes.Red;            
+            control.statusCanvas.Background = Brushes.Red;
+
+            Statictic.Clients++;
 
             Hide();
         });

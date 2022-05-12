@@ -20,27 +20,31 @@ namespace Kursach.Database
             return sqlModel;
         }
 
-        public Cash SelectCash()
+        public void InitializeCash()
         {
             var mySqlDB = MySqlDatabase.GetDataBase();
-            string sql = "select * from Cash";
+            string sql = "select * from cash";
             if (mySqlDB.OpenConnection())
             {
                 using (MySqlCommand mc = new(sql, mySqlDB.sqlConnection))
                 using (MySqlDataReader dr = mc.ExecuteReader())
                 {
-                    while (dr.Read())
+                    if(dr.Read())
                         Cash.InitializeCash(dr.GetGuid("id"), dr.GetInt32("Balance"), new());
                 }
             }
-            return Cash.Instance;
+
+            mySqlDB.CloseConnection();
+
+            if (Cash.Instance is null)
+                Cash.InitializeCash(Guid.NewGuid(), 0, new());
         }
 
         public List<Detail> SelectDetails()
         {
             var mySqlDB = MySqlDatabase.GetDataBase();
             var result = new List<Detail>();
-            string sql = "select * from Details";
+            string sql = "select * from details";
             if (mySqlDB.OpenConnection())
             {
                 using (MySqlCommand mc = new MySqlCommand(sql, mySqlDB.sqlConnection))
@@ -67,7 +71,7 @@ namespace Kursach.Database
         {
             var mySqlDB = MySqlDatabase.GetDataBase();
             var result = new List<CashRecord>();
-            string sql = "select * from CashRecords order by Date";
+            string sql = "select * from cashrecords order by Date";
             if (mySqlDB.OpenConnection())
             {
                 using (MySqlCommand mc = new MySqlCommand(sql, mySqlDB.sqlConnection))

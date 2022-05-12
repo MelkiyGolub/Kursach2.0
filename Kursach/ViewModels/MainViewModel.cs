@@ -1,4 +1,5 @@
-﻿using Kursach.Objects;
+﻿using Kursach.Database;
+using Kursach.Objects;
 using System.Diagnostics;
 using System.Windows;
 
@@ -8,7 +9,7 @@ namespace Kursach.ViewModels
     {
         public MainViewModel()
         {
-
+            SqlModel.GetInstance().InitializeCash();
         }
 
         public Command ExitCommand { get; } = new(o => Application.Current.Shutdown());
@@ -20,6 +21,7 @@ namespace Kursach.ViewModels
 
         public Command ShowPacketsCommand { get; } = new(o => new Packets().ShowDialog());
 
+        public Command ShowStatisticCommand { get; } = new(o => new Statistic ().ShowDialog());
         public Command TelegaCommand { get; } = new(o =>
         {
             Process.Start(new ProcessStartInfo

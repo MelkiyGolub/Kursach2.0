@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kursach.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows;
@@ -8,30 +9,34 @@ namespace Kursach.Objects.Models;
 [Table("Cash")]
 public class Cash : Model
 {
-    static Cash()
-    {
-        InitializeCash(Guid.NewGuid(),387255, new());
-    }
-
     private Cash(Guid Id, int balance, List<CashRecord> cashRecords)
     {
         ID = Id;
         CurrentBalance = balance;
         CashRecords = cashRecords;
+
+        SqlModel.GetInstance().Insert(this);
     }
 
-    public static Cash Instance { get; private set; }
+    public static Cash Instance { get; private set; } = null;
 
     [Column("Balance")]
     public int CurrentBalance { get; private set; }
 
-    public List<CashRecord> CashRecords { get; private init; }
+    public List<CashRecord> CashRecords { get; set; }
 
     public void RecieveMoney(int sum, string comment)
     {
         CurrentBalance += sum;
 
-        CashRecords.Add(new(sum, comment));
+        CashRecord record = new(sum, comment);
+
+        CashRecords.Add(record);
+
+        SqlModel db = SqlModel.GetInstance();
+
+        db.Insert(record);
+        db.Update(this);
     }
 
     public bool Pay(int sum, string comment)
@@ -44,7 +49,14 @@ public class Cash : Model
 
         CurrentBalance -= sum;
 
-        CashRecords.Add(new(sum, comment));
+        CashRecord record = new(sum, comment);
+
+        CashRecords.Add(record);
+
+        SqlModel db = SqlModel.GetInstance();
+
+        db.Insert(record);
+        db.Update(this);
 
         return true;
     }

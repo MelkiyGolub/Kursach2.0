@@ -2,7 +2,7 @@
 
 namespace Kursach.Objects.Models;
 
-[Table("Details")]
+[Table("details")]
 public class Detail : Model
 {
     [Column("Type")]
