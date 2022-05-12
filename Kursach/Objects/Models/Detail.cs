@@ -16,4 +16,7 @@ public class Detail : Model
 
     [Column("Price")]
     public int Price { get; init; }
+
+    [Column("Number")]
+    public int Number { get; init; }
 }

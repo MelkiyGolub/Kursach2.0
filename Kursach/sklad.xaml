@@ -61,10 +61,15 @@
                           HorizontalContentAlignment="Stretch"
                           ItemTemplate="{StaticResource ResourceKey=DetailTemplate}"/>
 
-                <Button Grid.Row="2" Content="Заказать"
+            <Button Grid.Row="2" Content="Заказать"
                     HorizontalAlignment="Right"
                     Command="{Binding ShowOrdersCommand}"
                     Width="120" FontSize="20"/>
+
+            <Button Grid.Row="2" Content="Взять"
+                    HorizontalAlignment="Left"
+                    Width="120" FontSize="20"
+                    Command="{Binding ShowTakeDetailsCommand}"/>
 
         </Grid>
     </Border>

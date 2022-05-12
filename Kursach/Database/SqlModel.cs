@@ -24,6 +24,7 @@ namespace Kursach.Database
         {
             var mySqlDB = MySqlDatabase.GetDataBase();
             string sql = "select * from cash";
+
             if (mySqlDB.OpenConnection())
             {
                 using (MySqlCommand mc = new(sql, mySqlDB.sqlConnection))
@@ -44,7 +45,7 @@ namespace Kursach.Database
         {
             var mySqlDB = MySqlDatabase.GetDataBase();
             var result = new List<Detail>();
-            string sql = "select * from details";
+            string sql = "select * from details order by Number";
             if (mySqlDB.OpenConnection())
             {
                 using (MySqlCommand mc = new MySqlCommand(sql, mySqlDB.sqlConnection))
@@ -58,7 +59,8 @@ namespace Kursach.Database
                             Type = dr.GetString("Type"),
                             Model = dr.GetString("Model"),
                             Amount = dr.GetInt32("Amount"),
-                            Price = dr.GetInt32("Price")
+                            Price = dr.GetInt32("Price"),
+                            Number = dr.GetInt32("Number")
                         });
                     }
                 }
