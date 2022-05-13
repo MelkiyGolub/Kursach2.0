@@ -8,7 +8,7 @@
         xmlns:viewmodels="clr-namespace:Kursach.ViewModels"
         mc:Ignorable="d"
         Title="sklad" Height="510" Width="800"
-        Background="#252628" WindowStyle="None"
+        Background="{DynamicResource MainBackground}" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
@@ -20,24 +20,28 @@
                       DataType="{x:Type model:Detail}">
 
             <Grid Margin="5">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Foreground="White" Margin="0 0 15 0"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="78*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+                    <TextBlock Foreground="{DynamicResource MainForeground}" Margin="0 0 15 0"
                                Text="{Binding Type}" FontSize="18"/>
-                    <TextBlock Foreground="White"
+                    <TextBlock Foreground="{DynamicResource MainForeground}"
                                Text="{Binding Model}" FontSize="18"/>
                 </StackPanel>
 
                 <TextBlock Text="{Binding Amount}"
-                           Foreground="White"
-                           HorizontalAlignment="Right" Margin="0 0 20 0"
+                           Foreground="{DynamicResource MainForeground}"
+                           HorizontalAlignment="Left" Margin="759,0,0,0"
                            FontSize="18"/>
 
             </Grid>
-            
+
         </DataTemplate>
     </Window.Resources>
-    
-    <Border>
+
+    <Border BorderThickness="2" BorderBrush="Black">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -45,7 +49,7 @@
                 <RowDefinition Height="45"/>
             </Grid.RowDefinitions>
 
-            <Border Background="#FCE205">
+            <Border Background="{DynamicResource AppPanelColor}">
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right">
 
@@ -63,12 +67,14 @@
 
             <Button Grid.Row="2" Content="Заказать"
                     HorizontalAlignment="Right"
+                    Style="{StaticResource MainButtonStyle}"
                     Command="{Binding ShowOrdersCommand}"
                     Width="120" FontSize="20"/>
 
             <Button Grid.Row="2" Content="Взять"
                     HorizontalAlignment="Left"
                     Width="120" FontSize="20"
+                    Style="{StaticResource MainButtonStyle}"
                     Command="{Binding ShowTakeDetailsCommand}"/>
 
         </Grid>

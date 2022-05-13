@@ -5,11 +5,16 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles/AppStateButtonStyle.xaml"/>
+
+                <ResourceDictionary Source="Styles/YellowTheme.xaml" />
+
+                <ResourceDictionary Source="Styles/AppStateButtonStyle.xaml" />
+                <ResourceDictionary Source="Styles/ThemeButtonStyle.xaml" />
+                <ResourceDictionary Source="Styles/MainButtonStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style TargetType="{x:Type TextBlock}">
-                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                <Setter Property="FontFamily" Value="Comic Sans MS" />
             </Style>
 
         </ResourceDictionary>

@@ -105,55 +105,56 @@ public class SkladViewModel : ViewModelBase
             Type = "Видеокарта",
             Model = "RTX 2080ti",
             Price = 56546,
-            Number = 4
+            Number = 5
         },
         new()
         {
             Type = "Мат. Плата",
             Model = "Asus",
             Price = 20000,
-            Number = 5
+            Number = 6
         },
         new()
         {
             Type = "Процессор",
             Model = "Intel core i7",
             Price = 25000,
-            Number = 6
+            Number = 7
         },
         new()
         {
             Type = "Оперативная память",
             Model = HYPER_X,
             Price = 8000,
-            Number = 7
+            Number = 8
         },
         new()
         {
             Type = "Блок питания",
             Model = "Palit",
             Price = 15000,
-            Number = 8
+            Number = 9
         },
         new()
         {
             Type = "SSD",
             Model = "Kindgston",
-            Price = 17000
+            Price = 17000,
+            Number = 10
         },
         new()
         {
             Type = "Кулер",
             Model = "AliExpress PC",
             Price = 500,
-            Number = 9
+            Number = 11
         },
         new()
         {
             Type = "Наушники",
             Model = HYPER_X,
             Price = 3000,
-            Number = 10
+            Number = 12
         }
     };
 

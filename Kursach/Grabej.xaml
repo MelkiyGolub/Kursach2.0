@@ -7,7 +7,7 @@
         xmlns:objects="clr-namespace:Kursach.Objects"
         mc:Ignorable="d"        
         Title="Grabej" Height="200" Width="400"
-        Background="#252628" WindowStyle="None"
+        Background="{DynamicResource MainBackground}" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
@@ -22,7 +22,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Border Background="#FCE205">
+            <Border Background="{DynamicResource AppPanelColor}">
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right">
 
@@ -37,7 +37,7 @@
 
                 <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
                     <TextBlock Text="Тариф: " FontSize="20"
-                               Foreground="White"/>
+                               Foreground="{DynamicResource MainForeground}"/>
                     <ComboBox Width="150" 
                               SelectedItem="{Binding SelectedTarif, UpdateSourceTrigger=PropertyChanged}"
                               DisplayMemberPath="Title" ItemsSource="{Binding Tarify}"/>
@@ -45,23 +45,25 @@
 
                 <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
                     <TextBlock Text="Время: " FontSize="20"
-                               Foreground="White"/>
+                               Foreground="{DynamicResource MainForeground}"/>
                     <TextBlock Text="{Binding Hours, UpdateSourceTrigger=PropertyChanged}"
-                               FontSize="20" Foreground="White"/>
+                               FontSize="20" Foreground="{DynamicResource MainForeground}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
                     <TextBlock Text="Сумма: " FontSize="20"
-                               Foreground="White"/>
+                               Foreground="{DynamicResource MainForeground}"/>
                     <TextBlock Text="{Binding Price, Converter={StaticResource MoneyConverter}}" FontSize="20"
-                               Foreground="White"/>
+                               Foreground="{DynamicResource MainForeground}"/>
                 </StackPanel>
                 
             </StackPanel>
 
             <Button Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"
                     Content="Оплатить" Command="{Binding PayCommand}"
-                    Height="35" Width="75" FontSize="14"/>
+                    Height="35" Width="75" FontSize="14"
+                    IsDefault="True"
+                    Style="{StaticResource MainButtonStyle}"/>
 
         </Grid>
     </Border>

@@ -16,7 +16,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Border Background="#FCE205">
+            <Border Background="{DynamicResource AppPanelColor}">
                 <Button HorizontalAlignment="Right" Width="30"
                         Content="x" Click="Button_Click"
                         Style="{StaticResource AppStateButtonStyle}"/>
@@ -26,7 +26,8 @@
 
                 <StackPanel Orientation="Horizontal" 
                             Margin="20">
-                    <TextBlock Text="Тип: " FontSize="22" Foreground="White"/>
+                    <TextBlock Text="Тип: " FontSize="22"
+                               Foreground="{DynamicResource MainForeground}"/>
                     <ComboBox ItemsSource="{Binding Details}"
                               SelectedItem="{Binding SelectedDetail}"
                               DisplayMemberPath="Type"
@@ -35,7 +36,8 @@
 
                 <StackPanel Orientation="Horizontal" 
                             Margin="20 0 20 0">
-                    <TextBlock Text="Кол-во: " FontSize="22" Foreground="White"/>
+                    <TextBlock Text="Кол-во: " FontSize="22" 
+                               Foreground="{DynamicResource MainForeground}"/>
                     <TextBox Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}"
                              FontSize="22"
                              Width="250"/>
@@ -45,7 +47,8 @@
 
             <Button HorizontalAlignment="Right" VerticalAlignment="Bottom"
                     Content="Взять" Grid.Row="1"
-                    Click="Button_Click"
+                    Click="Button_Click" IsDefault="True"
+                    Style="{StaticResource MainButtonStyle}"
                     Width="100" Height="35" Command="{Binding TakeDetailCommand}"/>
 
         </Grid>

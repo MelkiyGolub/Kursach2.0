@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <SolidColorBrush x:Key="AppPanelColor" Color="#735184" />
+
+    <SolidColorBrush x:Key="MainBackground" Color="#ffc9ff" />
+
+    <SolidColorBrush x:Key="MainForeground" Color="#000000" />
+
+    <SolidColorBrush x:Key="AppStateButtonForeground" Color="#000000" />
+
+    <SolidColorBrush x:Key="ComputerControlBackground" Color="#454646" />
+    <SolidColorBrush x:Key="ComputerControlTimerForeground" Color="#000000" />
+
+    <SolidColorBrush x:Key="ThemeButtonBackground" Color="#735184" />
+    <SolidColorBrush x:Key="ThemeButtonForeground" Color="Black" />
+    <SolidColorBrush x:Key="ThemeButtonMouseOverBackground" Color="#896BA0" />
+    <SolidColorBrush x:Key="ThemeButtonPressedBackground" Color="#603560" />
+    <SolidColorBrush x:Key="ThemeButtonCheckedBackground" Color="#603560" />
+    <SolidColorBrush x:Key="ThemeButtonCDisabledBackground" Color="#502861"/>
+
+</ResourceDictionary>

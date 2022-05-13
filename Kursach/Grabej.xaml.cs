@@ -34,8 +34,8 @@ public partial class Grabej : Window, INotifyPropertyChanged
         Hide();
     }
 
-    private decimal _hours;
-    public decimal Hours
+    private int _hours;
+    public int Hours
     {
         get => _hours;
         set
@@ -47,7 +47,7 @@ public partial class Grabej : Window, INotifyPropertyChanged
         }
     }
 
-    public decimal Price { get; set; }
+    public int Price { get; set; }
 
     private Tarif _selectedTarif;
     public Tarif SelectedTarif
@@ -106,11 +106,4 @@ public partial class Grabej : Window, INotifyPropertyChanged
     public Command PayCommand { get; init; }
 
     public event PropertyChangedEventHandler? PropertyChanged;
-}
-
-public class Tarif
-{
-    public string Title { get; set; }
-    public int Price { get; set; }
-    public int Time { get; set; }
 }

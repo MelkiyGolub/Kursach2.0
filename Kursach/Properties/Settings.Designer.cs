@@ -70,5 +70,17 @@ namespace Kursach.Properties {
                 this["password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public byte themeIndex {
+            get {
+                return ((byte)(this["themeIndex"]));
+            }
+            set {
+                this["themeIndex"] = value;
+            }
+        }
     }
 }

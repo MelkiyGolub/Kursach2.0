@@ -8,7 +8,7 @@
         xmlns:viewmodels="clr-namespace:Kursach.ViewModels"
         mc:Ignorable="d"
         Title="CashWindow" Height="600" Width="850"
-        Background="#252628" WindowStyle="None"
+        Background="{DynamicResource MainBackground}" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
@@ -21,10 +21,12 @@
         <DataTemplate x:Key="CashRecordTemplate" DataType="{x:Type model:CashRecord}">
             <Border Margin="7 4 20 2" BorderThickness="0 0 0 2" BorderBrush="White">
                 <StackPanel Orientation="Horizontal">
-                    <Border Background="White" CornerRadius="25"
+                    <Border Background="{DynamicResource MainForeground}" CornerRadius="25"
                             Height="5" Width="5" Margin="3 0 10 0"/>
-                    <TextBlock Text="{Binding DateTime}" FontSize="16" Foreground="White"/>
-                    <TextBlock Text="{Binding Comment}" FontSize="16" Foreground="White"
+                    <TextBlock Text="{Binding DateTime}" FontSize="16"
+                               Foreground="{DynamicResource MainForeground}"/>
+                    <TextBlock Text="{Binding Comment}" FontSize="16" 
+                               Foreground="{DynamicResource MainForeground}"
                                Margin="10 0 0 0"/>
                 </StackPanel>       
             </Border>
@@ -38,7 +40,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Border Background="#FCE205">
+            <Border Background="{DynamicResource AppPanelColor}">
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right">
 
@@ -57,7 +59,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Text="{Binding Cash.CurrentBalance, Converter={StaticResource MoneyConverter}}"
-                           Foreground="White" FontSize="20"/>
+                           Foreground="{DynamicResource MainForeground}" FontSize="20"/>
 
                 <ScrollViewer VerticalScrollBarVisibility="Hidden" Grid.Row="1">
                     <ItemsControl ItemsSource="{Binding Cash.CashRecords}"

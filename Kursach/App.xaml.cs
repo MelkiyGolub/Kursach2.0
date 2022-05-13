@@ -13,5 +13,6 @@ namespace Kursach
     /// </summary>
     public partial class App : Application
     {
+        public static ResourceDictionary ThemeDictionary => Current.Resources.MergedDictionaries[0];
     }
 }

@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Kursach"
         mc:Ignorable="d"
         Title="Cumputers" Height="630" Width="1260" 
-        Background="#252628" WindowStyle="None"
+        Background="{DynamicResource MainBackground}" WindowStyle="None"
         WindowState="Maximized" 
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Icon="ViewModels/Logo.png">
@@ -24,19 +24,28 @@
                 <RowDefinition Height="0.4*"/>
             </Grid.RowDefinitions>
 
-            <Border Background="#FCE205">
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Right">
+            <Border Background="{DynamicResource AppPanelColor}">
+                <Grid>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right">
 
-                    <Button Width="30" Content="_"
-                            Command="{Binding HideCommand}"
-                            Style="{StaticResource AppStateButtonStyle}"/>
+                        <Button Width="30" Content="_"
+                                Command="{Binding HideCommand}"
+                                Style="{StaticResource AppStateButtonStyle}"/>
 
-                    <Button Width="30" Content="x"
-                            Command="{Binding ExitCommand}"
-                            Style="{StaticResource AppStateButtonStyle}"/>
+                        <Button Width="30" Content="x"
+                                Command="{Binding ExitCommand}"
+                                Style="{StaticResource AppStateButtonStyle}"/>
 
-                </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock Text="{Binding CurrentTime}"
+                               Foreground="{DynamicResource ThemeButtonForeground}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="22" FontWeight="DemiBold"/>
+
+                </Grid>
             </Border>
 
             <Grid Grid.Row="1">
@@ -95,48 +104,35 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0" Grid.Row="0"
-                        Margin="3" Command="{Binding ShowCashCommand}">
-                    <Viewbox>
-                        <Label Content="Касса"/>
-                    </Viewbox>
-                </Button>
+                        Style="{StaticResource MainButtonStyle}"
+                        Margin="3" Command="{Binding ShowCashCommand}"
+                        Content="Касса"/>
 
                 <Button Grid.Column="1" Grid.Row="0" 
                         Margin="3" 
-                        Command="{Binding ShowSkladCommand}">
-                    <Viewbox>
-                        <Label Content="Склад"/>
-                    </Viewbox>
-                </Button>
+                        Style="{StaticResource MainButtonStyle}"
+                        Command="{Binding ShowSkladCommand}"
+                        Content="Склад"/>
 
                 <Button Grid.Column="0" Grid.Row="1"
-                        Margin="3" Command="{Binding ShowStatisticCommand}">
-                    <Viewbox>
-                        <Label Content="Статистика за день"/>
-                    </Viewbox>
-                </Button>
+                        Style="{StaticResource MainButtonStyle}"
+                        Margin="3" Command="{Binding ShowStatisticCommand}"
+                        Content="Статистика за день"/>
 
                 <Button Grid.Column="1" Grid.Row="1"
-                        Margin="3">
-                    <Viewbox>
-                        <Label Content="Настройки"/>
-                    </Viewbox>
-                </Button>
+                        Style="{StaticResource MainButtonStyle}"
+                        Margin="3" Command="{Binding ShowSettingsCommand}"
+                        Content="Настройки"/>
 
                 <Button Grid.Column="2" Grid.Row="0"
-                        Margin="3" Command="{Binding ShowPacketsCommand}">
-                    <Viewbox>
-                        <Label Content="Пакеты услуг"/>                               
-                    </Viewbox>
-                </Button>
+                        Style="{StaticResource MainButtonStyle}"
+                        Margin="3" Command="{Binding ShowPacketsCommand}"
+                        Content="Пакеты услуг"/>
 
                 <Button Grid.Column="2" Grid.Row="1"
-                        Margin="3" Command="{Binding TelegaCommand}">
-                    <Viewbox>
-                        <Label Content="Сайт"/>
-                    </Viewbox>
-                </Button>
-
+                        Content="Сайт"
+                        Style="{StaticResource MainButtonStyle}"
+                        Margin="3" Command="{Binding TelegaCommand}"/>
             </Grid>
         </Grid>
     </Border>

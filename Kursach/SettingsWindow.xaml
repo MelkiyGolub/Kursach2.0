@@ -1,0 +1,96 @@
+﻿<Window x:Class="Kursach.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursach" xmlns:viewmodels="clr-namespace:Kursach.ViewModels"
+        mc:Ignorable="d"
+        Title="SettingsWindow" Height="300" Width="400"
+        Background="{DynamicResource MainBackground}" WindowStyle="None"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewmodels:SettingsViewModel />
+    </Window.DataContext>
+    
+    <Border BorderThickness="2" BorderBrush="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Border Background="{DynamicResource AppPanelColor}"
+                    Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+
+                    <Button Width="30" Content="x"
+                            Click="Button_Click"
+                            Style="{StaticResource AppStateButtonStyle}"/>
+
+                </StackPanel>
+            </Border>
+
+            <StackPanel HorizontalAlignment="Center" Grid.Row="1"
+                        VerticalAlignment="Center">
+
+                <RadioButton Content="Бамблби"
+                             Command="{Binding SetYellowThemeCommand}"
+                             Style="{StaticResource ThemeButtonStyle}"
+                             Width="140" Height="40"/>
+
+                <RadioButton Content="Сербурмал"
+                             Command="{Binding SetSeroburoMalinovayaThemeCommand}"
+                             Margin="0 10 0 0"
+                             Style="{StaticResource ThemeButtonStyle}"
+                             Width="140" Height="40"/>
+
+                <RadioButton Content="Морской бриз"
+                             Command="{Binding SetCyanThemeCommand}"
+                             Margin="0 10 0 0"
+                             Style="{StaticResource ThemeButtonStyle}"
+                             Width="140" Height="40"/>
+
+                <RadioButton Content="Розовая пантера"
+                             Command="{Binding SetPinkThemeCommand}"
+                             Margin="0 10 0 0"
+                             Style="{StaticResource ThemeButtonStyle}"
+                             Width="140" Height="40"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1"
+                        VerticalAlignment="Center">
+
+                <RadioButton Content="Light Бамблби"
+                             Command="{Binding SetLightBamblblinThemeCommand}"
+                             Style="{StaticResource ThemeButtonStyle}"
+                             Width="140" Height="40"/>
+
+                <RadioButton Content="Light Сербурмал"
+                             Command="{Binding SetLightSerburmalThemeCommand}"
+                             Margin="0 10 0 0"
+                             Style="{StaticResource ThemeButtonStyle}"
+                             Width="140" Height="40"/>
+
+                <RadioButton Content="Light морской бриз"
+                             Command="{Binding SetLightCyanThemeCommand}"
+                             Margin="0 10 0 0"
+                             Style="{StaticResource ThemeButtonStyle}"
+                             Width="140" Height="40"/>
+
+                <RadioButton Content="Light Розовая пантера"
+                             Command="{Binding SetLightPinkThemeCommand}"
+                             Margin="0 10 0 0"
+                             Style="{StaticResource ThemeButtonStyle}"
+                             Width="140" Height="40"/>
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</Window>

@@ -1,5 +1,6 @@
 ﻿using Kursach.Objects;
 using Kursach.Properties;
+using Kursach.ViewModels;
 using System.Windows;
 
 namespace Kursach
@@ -13,6 +14,8 @@ namespace Kursach
         {
             InitializeComponent();
             DataContext = this;
+
+            SettingsViewModel.InitTheme();
 
             LoginCommand = new(o =>
             {

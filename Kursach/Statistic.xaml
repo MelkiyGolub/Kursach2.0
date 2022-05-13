@@ -6,21 +6,21 @@
         xmlns:obj="clr-namespace:Kursach.Objects"
         mc:Ignorable="d"
         Title="Statistic" Height="210" Width="300"
-        Background="#252628" WindowStyle="None"
+        Background="{DynamicResource MainBackground}" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
         <obj:Statictic/>
     </Window.DataContext>
-    
-  <Border>
+
+    <Border BorderBrush="Black" BorderThickness="2">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
              </Grid.RowDefinitions>
 
-            <Border Background="#FCE205">
+            <Border Background="{DynamicResource AppPanelColor}">
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right">
 
@@ -33,10 +33,11 @@
 
             <StackPanel Orientation="Horizontal" Grid.Row="1">
                 <TextBlock Text="Кол-во посетиTелей: "
-                           Foreground="White" FontSize="18" 
+                           Foreground="{DynamicResource MainForeground}"
+                           FontSize="18" 
                            Margin="5"/>
 
-                <TextBlock Foreground="White" 
+                <TextBlock Foreground="{DynamicResource MainForeground}" 
                            Text="{Binding Clients}"
                            FontSize="18" Margin="0 6 0 0"/>
             </StackPanel>            

@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
          Title="sklad" Height="510" Width="800"
-        Background="#252628" WindowStyle="None"
+        Background="{DynamicResource MainBackground}" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
-    <Border>
+    <Border BorderBrush="Black" BorderThickness="2">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Border Background="#FCE205">
+            <Border Background="{DynamicResource AppPanelColor}">
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right">
 
@@ -25,9 +25,11 @@
 
                 </StackPanel>
             </Border>
-            
-            
-            
+
+            <ItemsControl Grid.Row="1" Foreground="{DynamicResource MainForeground}"
+                          ItemsSource="{Binding Tarify}" FontSize="20"
+                          Margin="15 10 0 0"/>
+
         </Grid>
     </Border>
 </Window>
